@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     public float range;
     public Transform centerPoint;
-
+    public LayerMask obstacleLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
         //------------------------------------------
 
         //For enemy to patrol when he cant find the player
+
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             Vector3 point;
@@ -56,14 +57,26 @@ public class EnemyMovement : MonoBehaviour
 
     private bool RandomPoint(Vector3 center, float range,out Vector3 result)
     {
-        Vector3 randomPoint = center + Random.insideUnitSphere * range;
-
-        NavMeshHit hit;
-
-        if(NavMesh.SamplePosition(randomPoint,out hit, 1f, NavMesh.AllAreas))
+        for (int i = 0; i < 30; i++)
         {
-            result = hit.position;
-            return true;
+
+
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+
+            NavMeshHit hit;
+
+            Vector3 samplePosition = randomPoint;
+
+            if(Physics.Raycast(samplePosition + Vector3.up * 2, Vector3.down, out RaycastHit hitInfo, 5f, obstacleLayer))
+            {
+                continue;
+            }
+            if (NavMesh.SamplePosition(samplePosition, out hit, 1f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                Debug.DrawRay(hit.position, Vector3.up * 10, Color.green, 1f);
+                return true;
+            }
         }
 
         result= Vector3.zero;
