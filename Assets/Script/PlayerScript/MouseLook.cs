@@ -8,6 +8,9 @@ public class MouseLook : MonoBehaviour
     public Transform player;
     float xRotation;
 
+    public float vibrationIntensity = 0.1f;
+    public float vibrationSpeed = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +28,13 @@ public class MouseLook : MonoBehaviour
 
         player.Rotate(Vector3.up * mouseX);
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+
+        if(Input.GetAxis("Horizontal")!=0|| Input.GetAxis("Vertical") != 0)
+        {
+            float vibrationX = Mathf.PerlinNoise(Time.time * vibrationSpeed, 0) * 2 - 1;
+            float vibrationY = Mathf.PerlinNoise(0, Time.time * vibrationSpeed) * 2 - 1;
+
+            transform.localRotation *= Quaternion.Euler(vibrationX * vibrationIntensity, vibrationY * vibrationIntensity, 0);
+        }
     }
 }

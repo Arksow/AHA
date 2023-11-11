@@ -18,6 +18,8 @@ public class CharacterMovement : MonoBehaviour
     public float groundDistance;
     public LayerMask groundMask;
 
+    public AudioSource footStep;
+
     private void Start()
     {
        
@@ -57,7 +59,20 @@ public class CharacterMovement : MonoBehaviour
             speed = playerWalkSpeed;
         }
         
-        
+        if(x > 0 || z > 0 && !Input.GetKey(KeyCode.LeftShift))
+        {
+            footStep.enabled = true;
+            footStep.pitch = 0.8f;
+        }
+        else if((x > 0 || z > 0)&& Input.GetKey(KeyCode.LeftShift))
+        {
+            
+            footStep.pitch = 1f;
+        }
+        else
+        {
+            footStep.enabled = false;
+        }
         
     }
 }
