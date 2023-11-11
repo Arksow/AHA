@@ -9,7 +9,7 @@ public class Lock : MonoBehaviour
     int firstNum;
     int seccondNum;
     int thirdNum;
-    int wholeNum;
+    [SerializeField]int wholeNum;
     int[] lockNum = new int[3];
     int[] inputLockNum = new int[3];
 
