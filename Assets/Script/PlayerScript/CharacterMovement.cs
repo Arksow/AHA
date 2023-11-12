@@ -62,14 +62,14 @@ public class CharacterMovement : MonoBehaviour
             speed = playerWalkSpeed;
         }
         
-        if(x > 0 || z > 0 && !Input.GetKey(KeyCode.LeftShift)&&!Input.GetButton("Jump") && groundedPlayer)
+        if((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.D)) && !Input.GetKey(KeyCode.LeftShift) && !Input.GetButton("Jump") && groundedPlayer)
         {
             footStep.enabled = true;
             footStep.pitch = 0.8f;
         }
-        else if((x > 0 || z > 0)&& Input.GetKey(KeyCode.LeftShift) && !Input.GetButton("Jump") && groundedPlayer)
+        else if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift) && !Input.GetButton("Jump") && groundedPlayer)
         {
-            footStep.enabled = true;
+            //footStep.enabled = true;
             footStep.pitch = 1f;
         }
         else
