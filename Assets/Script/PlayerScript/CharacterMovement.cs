@@ -19,6 +19,8 @@ public class CharacterMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public AudioSource footStep;
+    public AudioSource jumpSource;
+    public AudioClip JumpSound;
 
     private void Start()
     {
@@ -41,9 +43,10 @@ public class CharacterMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (Input.GetButton("Jump") && groundedPlayer)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityValue);
+            jumpSource.PlayOneShot(JumpSound,0.2f);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -59,14 +62,14 @@ public class CharacterMovement : MonoBehaviour
             speed = playerWalkSpeed;
         }
         
-        if(x > 0 || z > 0 && !Input.GetKey(KeyCode.LeftShift))
+        if(x > 0 || z > 0 && !Input.GetKey(KeyCode.LeftShift)&&!Input.GetButton("Jump") && groundedPlayer)
         {
             footStep.enabled = true;
             footStep.pitch = 0.8f;
         }
-        else if((x > 0 || z > 0)&& Input.GetKey(KeyCode.LeftShift))
+        else if((x > 0 || z > 0)&& Input.GetKey(KeyCode.LeftShift) && !Input.GetButton("Jump") && groundedPlayer)
         {
-            
+            footStep.enabled = true;
             footStep.pitch = 1f;
         }
         else
