@@ -11,8 +11,7 @@ public class MouseLook : MonoBehaviour
     public float vibrationIntensity = 0.1f;
     public float vibrationSpeed = 5f;
 
-    public Camera enemyCamera;
-    public bool enemyLookAtMe;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +22,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 screenPoint = enemyCamera.WorldToViewportPoint(transform.position);
-        enemyLookAtMe = screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1 && screenPoint.z > 1;
+        
 
         float mouseX = Input.GetAxis("Mouse X")*mouseSensitivity*Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y")*mouseSensitivity*Time.deltaTime;

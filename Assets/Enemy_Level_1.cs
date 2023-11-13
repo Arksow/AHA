@@ -5,14 +5,23 @@ using UnityEngine.AI;
 
 public class Enemy_Level_1 : MonoBehaviour
 {
-    public MouseLook mouseLook;
+    
     public NavMeshAgent agent;
     public GameObject Player;
     public Animator animator;
 
+    public Camera enemyCamera;
+    public bool enemyLookAtMe;
+    private void Start()
+    {
+        Player = GameObject.Find("Player");
+    }
     private void Update()
     {
-        if (mouseLook.enemyLookAtMe)
+        Vector3 screenPoint = enemyCamera.WorldToViewportPoint(Player.transform.position);
+        enemyLookAtMe = screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1 && screenPoint.z > 1;
+
+        if (enemyLookAtMe)
         {
             Vector3 moveDirectionToPlayer = (Player.transform.position - transform.position).normalized;
             agent.SetDestination(Player.transform.position);

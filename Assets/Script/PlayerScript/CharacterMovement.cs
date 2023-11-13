@@ -46,7 +46,7 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetButton("Jump") && groundedPlayer)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityValue);
-            jumpSource.PlayOneShot(JumpSound,0.2f);
+            jumpSource.PlayOneShot(JumpSound,0.1f);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -69,7 +69,7 @@ public class CharacterMovement : MonoBehaviour
         }
         else if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift) && !Input.GetButton("Jump") && groundedPlayer)
         {
-            //footStep.enabled = true;
+            footStep.enabled = true;
             footStep.pitch = 1f;
         }
         else
