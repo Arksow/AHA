@@ -29,7 +29,17 @@ public class ButtonUI_Script : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+    public void NextLevel_BTN()
+    {
+        if(SceneManager.GetActiveScene().name== "Lvl1")
+        {
+            SceneManager.LoadScene("Level_2");
+        }
+        else
+        {
+            SceneManager.LoadScene("StartScene");
+        }
+    }
 
 
 }

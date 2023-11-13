@@ -12,9 +12,13 @@ public class Enemy_Level_1 : MonoBehaviour
 
     public Camera enemyCamera;
     public bool enemyLookAtMe;
+
+    public Gamemanager gm;
+
     private void Start()
     {
         Player = GameObject.Find("Player");
+        gm = FindObjectOfType<Gamemanager>();
     }
     private void Update()
     {
@@ -41,6 +45,7 @@ public class Enemy_Level_1 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("DIE");
+            gm.isDie = true;
 
         }
     }
