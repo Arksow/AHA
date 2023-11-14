@@ -49,7 +49,5 @@ public class Gamemanager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             crossHair.SetActive(false);
         }
-
-
     }
 }

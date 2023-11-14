@@ -13,7 +13,6 @@ public class GoldScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
             gm.isWin = true;
         }
     }
