@@ -26,7 +26,8 @@ public class Lock : MonoBehaviour
     public TMP_Text inputLockText;
 
     public AudioSource source;
-    public AudioClip cliclSound;
+    public AudioClip clickSound;
+    public AudioClip wrongSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,15 +52,24 @@ public class Lock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputLockText.text == wholeNum.ToString())
+        string targetString = wholeNum.ToString();
+
+        if (inputLockText.text == targetString)
         {
+            inputLockText.text = "Correct";
             elevatorAnim.SetBool("OpenDoor",true);
+        }
+        if (inputLockText.text != targetString && inputLockText.text.Length == 4)
+        {
+            Debug.Log(targetString);
+            inputLockText.text = "";
+            source.PlayOneShot(wrongSound, 0.5f);
         }
     }
 
     public void SetInputValue(string s)
     {
         inputLockText.text += s;
-        source.PlayOneShot(cliclSound);
+        source.PlayOneShot(clickSound);
     }
 }

@@ -839,7 +839,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 6
-  click: {fileID: 0}
 --- !u!1 &5842502330189665350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 5
-  click: {fileID: 0}
 --- !u!1 &5842502330562902931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 2
-  click: {fileID: 0}
 --- !u!1 &5842502330565873169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 9
-  click: {fileID: 0}
 --- !u!1 &5842502330587782315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 7
-  click: {fileID: 0}
 --- !u!1 &5842502330727813120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 3
-  click: {fileID: 0}
 --- !u!1 &5842502330790896583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,7 +2126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 4
-  click: {fileID: 0}
 --- !u!1 &5842502331035311631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,7 +2467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 1
-  click: {fileID: 0}
 --- !u!1 &5842502331363128851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,7 +2907,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  click: {fileID: 0}
 --- !u!1 &5842502331474576416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,7 +3214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 8
-  click: {fileID: 0}
 --- !u!1 &5842502331700331090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,9 +3275,10 @@ MonoBehaviour:
   thirdNumTMP: {fileID: 0}
   fourthNumTMP: {fileID: 0}
   elevatorAnim: {fileID: 0}
-  inputLockText: {fileID: 0}
+  inputLockText: {fileID: 1866095793028682612}
   source: {fileID: 701226517519944181}
-  cliclSound: {fileID: 8300000, guid: ef8a9ec837f0a9e4e8db19a48338b9fb, type: 3}
+  clickSound: {fileID: 8300000, guid: ef8a9ec837f0a9e4e8db19a48338b9fb, type: 3}
+  wrongSound: {fileID: 8300000, guid: e0e834176dc35e64cbf310a34028def0, type: 3}
 --- !u!82 &701226517519944181
 AudioSource:
   m_ObjectHideFlags: 0
