@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jumpscare : MonoBehaviour
 {
-    public GameObject scareObject;
+    
     public AudioSource audiosource;
     public AudioClip scare;
 
@@ -13,7 +13,7 @@ public class Jumpscare : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scareObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -26,9 +26,9 @@ public class Jumpscare : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            scareObject.SetActive(true);
+            
             audiosource.PlayOneShot(scare);
-            Destroy(scareObject, 2);
+            
             Destroy(gameObject, 3f);
         }
     }

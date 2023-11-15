@@ -28,6 +28,8 @@ public class Lock : MonoBehaviour
     public AudioSource source;
     public AudioClip clickSound;
     public AudioClip wrongSound;
+
+    public GameObject elivator;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,9 @@ public class Lock : MonoBehaviour
         {
             inputLockText.text = "Correct";
             elevatorAnim.SetBool("OpenDoor",true);
+            StartCoroutine("ElevatorCoroutine");
+            
+
         }
         if (inputLockText.text != targetString && inputLockText.text.Length == 4)
         {
@@ -71,5 +76,11 @@ public class Lock : MonoBehaviour
     {
         inputLockText.text += s;
         source.PlayOneShot(clickSound);
+    }
+
+    IEnumerator ElevatorCoroutine()
+    {
+        yield return new WaitForSeconds(10f);
+        elivator.GetComponent<BoxCollider>().enabled = false;
     }
 }

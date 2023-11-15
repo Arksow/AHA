@@ -51,7 +51,7 @@ public class Gamemanager : MonoBehaviour
             Time.timeScale = 0;
             WinLosePanel.SetActive(true);
             nextLevel_Btn.SetActive(false);
-            WinLoseText.text = "YOU DIE!!!";
+            WinLoseText.text = "YOU DIE";
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             crossHair.SetActive(false);
@@ -60,7 +60,7 @@ public class Gamemanager : MonoBehaviour
         {
             Time.timeScale = 0;
             WinLosePanel.SetActive(true);
-            WinLoseText.text = "YOU WIN!!!";
+            WinLoseText.text = "YOU WIN";
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             crossHair.SetActive(false);
