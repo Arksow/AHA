@@ -14,6 +14,7 @@ public class Gamemanager : MonoBehaviour
     public Text WinLoseText;
     public GameObject crossHair;
     public Text clue;
+    public GameObject settingPanel;
 
 
     public bool isDie=false;
@@ -41,6 +42,7 @@ public class Gamemanager : MonoBehaviour
             clue.text = "The table seem useful. I can hide under them if something chases me.";
             StartCoroutine("ClueCoroutine");
         }
+        settingPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,6 +63,15 @@ public class Gamemanager : MonoBehaviour
             Time.timeScale = 0;
             WinLosePanel.SetActive(true);
             WinLoseText.text = "YOU WIN";
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            crossHair.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            settingPanel.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             crossHair.SetActive(false);

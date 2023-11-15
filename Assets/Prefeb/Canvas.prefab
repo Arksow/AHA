@@ -1287,8 +1287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59416914ba459443ac42cbbce9fed5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InstructionPanal: {fileID: 7969329753101237525}
+  InstructionPanal: {fileID: 0}
   SettingPanel: {fileID: 1570103388002226451}
+  crossHair: {fileID: 7969329751838729288}
 --- !u!1 &7969329752586499973
 GameObject:
   m_ObjectHideFlags: 0

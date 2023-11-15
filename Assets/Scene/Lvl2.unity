@@ -5934,6 +5934,11 @@ PrefabInstance:
       propertyPath: clue
       value: 
       objectReference: {fileID: 1920639652}
+    - target: {fileID: 1856772425723344518, guid: b3319d3973cb088419be211579897753,
+        type: 3}
+      propertyPath: settingPanel
+      value: 
+      objectReference: {fileID: 283023421}
     - target: {fileID: 1856772425723344519, guid: b3319d3973cb088419be211579897753,
         type: 3}
       propertyPath: m_Name
@@ -10931,6 +10936,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1570103388002226451, guid: 50fc4bff2696ebe438ad61a0a81cf790,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7969329752007470737, guid: 50fc4bff2696ebe438ad61a0a81cf790,
         type: 3}
       propertyPath: m_Name
@@ -11041,6 +11051,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7969329752007470742, guid: 50fc4bff2696ebe438ad61a0a81cf790,
+        type: 3}
+      propertyPath: InstructionPanal
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969329752007470742, guid: 50fc4bff2696ebe438ad61a0a81cf790,
+        type: 3}
+      propertyPath: crossHair
+      value: 
+      objectReference: {fileID: 206338309}
     - target: {fileID: 7969329753101237525, guid: 50fc4bff2696ebe438ad61a0a81cf790,
         type: 3}
       propertyPath: m_IsActive
