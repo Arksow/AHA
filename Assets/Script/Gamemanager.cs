@@ -13,13 +13,16 @@ public class Gamemanager : MonoBehaviour
     public GameObject nextLevel_Btn;
     public Text WinLoseText;
     public GameObject crossHair;
+    public Text clue;
 
 
     public bool isDie=false;
     public bool isWin = false;
+
     // Start is called before the first frame update
     void Start()
     {
+
         if (instance != null)
         {
             instance = this;
@@ -27,6 +30,17 @@ public class Gamemanager : MonoBehaviour
 
         WinLosePanel.SetActive(false);
         Time.timeScale = 1;
+        if (SceneManager.GetActiveScene().name == "Lvl1")
+        {
+            clue.text = "bababa";
+            StartCoroutine(ClueCoroutine());
+
+        }
+        if (SceneManager.GetActiveScene().name == "Lvl2")
+        {
+            clue.text = "The table seem useful. I can hide under them if something chases me.";
+            StartCoroutine("ClueCoroutine");
+        }
     }
 
     // Update is called once per frame
@@ -38,6 +52,7 @@ public class Gamemanager : MonoBehaviour
             WinLosePanel.SetActive(true);
             nextLevel_Btn.SetActive(false);
             WinLoseText.text = "YOU DIE!!!";
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             crossHair.SetActive(false);
         }
@@ -46,8 +61,15 @@ public class Gamemanager : MonoBehaviour
             Time.timeScale = 0;
             WinLosePanel.SetActive(true);
             WinLoseText.text = "YOU WIN!!!";
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             crossHair.SetActive(false);
         }
+    }
+
+    IEnumerator ClueCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        clue.text = "";
     }
 }

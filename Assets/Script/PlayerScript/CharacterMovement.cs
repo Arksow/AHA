@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
     bool crouched;
     public bool LostPlayer;
 
+    public Text clue;
     [SerializeField] GameObject SettingPanel;
     void Start()
     {
@@ -145,6 +148,13 @@ public class CharacterMovement : MonoBehaviour
         {
             LostPlayer = true;
         }
+
+        if (other.gameObject.tag == "Info" && SceneManager.GetActiveScene().name == "Lvl2")
+        {
+            clue.text = "The number must be important. I need to remember it.";
+            Destroy(other);
+            StartCoroutine("ClueCoroutine");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -153,5 +163,11 @@ public class CharacterMovement : MonoBehaviour
         {
             LostPlayer = false;
         }
+    }
+
+    IEnumerator ClueCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        clue.text = "";
     }
 }

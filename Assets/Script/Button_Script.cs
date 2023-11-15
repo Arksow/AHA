@@ -6,6 +6,7 @@ public class Button_Script : MonoBehaviour
 {
     
     public string number;
+    
     // Start is called before the first frame update
     void Start()
     {
