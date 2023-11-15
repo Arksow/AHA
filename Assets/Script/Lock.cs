@@ -13,9 +13,6 @@ public class Lock : MonoBehaviour
 
     [SerializeField]int wholeNum;
     
-    int[] lockNum = new int[4];
-    int[] inputLockNum = new int[3];
-
     public TMP_Text firstNumTMP;
     public TMP_Text secondNumTMP;
     public TMP_Text thirdNumTMP;
@@ -33,15 +30,10 @@ public class Lock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lockNum[0] = Random.Range(1, 9);
-        lockNum[1] = Random.Range(0, 9);
-        lockNum[2] = Random.Range(0, 9);
-        lockNum[3] = Random.Range(0, 9);
-
-        firstNum = lockNum[0];
-        seccondNum = lockNum[1];
-        thirdNum = lockNum[2];
-        fourthNum = lockNum[3];
+        firstNum = Random.Range(1, 9);
+        seccondNum = Random.Range(0, 9);
+        thirdNum = Random.Range(0, 9);
+        fourthNum = Random.Range(0, 9);
 
         firstNumTMP.text = firstNum.ToString();
         secondNumTMP.text = seccondNum.ToString();
@@ -61,12 +53,9 @@ public class Lock : MonoBehaviour
             inputLockText.text = "Correct";
             elevatorAnim.SetBool("OpenDoor",true);
             StartCoroutine("ElevatorCoroutine");
-            
-
         }
         if (inputLockText.text != targetString && inputLockText.text.Length == 4)
-        {
-            Debug.Log(targetString);
+        { 
             inputLockText.text = "";
             source.PlayOneShot(wrongSound, 0.5f);
         }

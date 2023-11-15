@@ -7,6 +7,7 @@ public class ButtonUI_Script : MonoBehaviour
 {
     [Header("for start scene only")]
     public GameObject InstructionPanal;
+
     [Header("for level 1 and 2")]
     public GameObject SettingPanel;
     public GameObject crossHair;
@@ -37,17 +38,23 @@ public class ButtonUI_Script : MonoBehaviour
 
     public void ContinueButton()
     {
-        SettingPanel.SetActive(false);
         Time.timeScale = 1;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        SettingPanel.SetActive(false);
+
+        CrossHair_Lock();
         crossHair.SetActive(true);
     }
+
+    private static void CrossHair_Lock()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     public void Resstart_BTN()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        CrossHair_Lock();
     }
     public void NextLevel_BTN()
     {

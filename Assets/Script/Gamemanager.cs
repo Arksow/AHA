@@ -68,14 +68,7 @@ public class Gamemanager : MonoBehaviour
             crossHair.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0;
-            settingPanel.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            crossHair.SetActive(false);
-        }
+        
     }
 
     IEnumerator ClueCoroutine()
