@@ -44,7 +44,6 @@ public class BacteriaEnemyScript : MonoBehaviour
     void StartChasing()
     {
         isChasing = true;
-        Debug.Log("Enemy is now chasing!");
 
         navMeshAgent.destination = player.transform.position;
 

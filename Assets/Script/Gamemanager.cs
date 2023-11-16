@@ -33,7 +33,7 @@ public class Gamemanager : MonoBehaviour
         Time.timeScale = 1;
         if (SceneManager.GetActiveScene().name == "Lvl1")
         {
-            clue.text = "bababa";
+            clue.text = "Find The Exit";
             StartCoroutine(ClueCoroutine());
 
         }
